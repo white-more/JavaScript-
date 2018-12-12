@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript错误处理</title>
+</head>
+
+<body>
+    <!-- 
+		1、tyr...catch..语句
+	 -->
+    <input type="button" name="btnTestErr" value="错误捕获" onclick="testerr()">
+    <script type="text/javascript">
+    function testerr() {
+        try {
+        	// 方法未定义错误
+            addlert("这是一个未定义的方法");
+        }catch(err) {
+            alert("捕获到一个错误的信息"+err);
+        }
+    }
+    </script>
+
+    <!-- 
+		2、
+        onerror：是错误触发事件，来处理页面中发生的脚本错误
+        onerror=handleErr，同时需要创建一个处理错误的函数handleErr，这个函数需要使用三个参数来调用msg（错误消息）、url（发生错误的页面的 url）、line（发生错误的代码行）。这些参数是内置的
+     -->
+
+     <input type="button"  value="onerror事件" onclick="message()">
+     <script>
+     	onerror=handleErr;
+     	var txt="";
+     	function handleErr(msg,url,l) {
+     		txt="该页面有一个错误"+"\n";
+     		txt+="错误："+msg+"\n"
+     		txt+="URL:"+url+"\n";
+     		txt+="行："+l+"\n";
+     		txt+="点击确定继续";
+     		alert(txt);
+     		return true;
+     	}
+     	function message(){
+     		addlert("呼！，未定义方法发生错误了");
+     	}
+     </script>
+</body>
+
+</html>

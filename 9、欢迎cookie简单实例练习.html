@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>欢迎cookie实例练习</title>
+    <script>
+    /**
+     * 设置cookie
+     * @param {[String]} cname  [key]
+     * @param {[String]} cvalue [value]
+     * @param {[day number]} exdays [expires time]
+     */
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    /**
+     * [getCookie description]
+     * @param  {[type]} cname [description]
+     * @return {[type]}       [description]
+     * @author {}
+     */
+    function getCookie(cname) {
+        var name = cname + "=";
+        var carr = document.cookie.split(";");
+        for (var i = 0; i < carr.length; i++) {
+            var c = carr[i].trim();
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        var user = getCookie("username");
+        if (util.isString(arg);er != "") {
+            alert("欢迎" + user + "再次访问");
+        } else {
+            user = prompt("请输入你的名字", "");
+            if (user != "" && user != null) {
+                setCookie("username", user, 30);
+            }
+        }
+    }
+    </script>
+</head>
+
+<body onload="checkCookie()">
+
+    <!-- 
+
+        哇，很懵逼，菜鸟教程果然是菜鸟的教程，前人诚不欺我，搞了半天，原来在本地无法设置cookie，
+        真的好气呀！！！
+
+     -->
+</body>
+
+</html>

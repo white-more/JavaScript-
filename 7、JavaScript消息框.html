@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>javascript消息框</title>
+</head>
+
+<body>
+    <!-- 
+    	警告框:window.alert("sometext");
+    		经常用于确保用户可以得到某些信息。
+			当警告框出现后，用户需要点击确定按钮才能继续进行操作。
+		
+		确认框:window.confirm("sometext");
+			通常用于验证是否接受用户操作。
+			当确认卡弹出时，用户可以点击 "确认" 或者 "取消" 来确定用户操作。
+			当你点击 "确认", 确认框返回 true， 如果点击 "取消", 确认框返回 false。
+		提示框:window.prompt("sometext","defaultvalue");
+		经常用于提示用户在进入页面前输入某个值。
+		当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。
+		如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为 null。
+	 -->
+    <input type="button" onclick="warnFrame()" value="警告框">
+    <input type="button" onclick="isOkFrame()" value="确认框">
+    <input type="button" onclick="tipFrame()" value="提示框">
+    <p id="isOkid"></p>
+    <p id="tipid"></p>
+    <script>
+    function warnFrame() {
+        alert("这是一个警告框\n哈哈想不到吧换行了");
+    }
+
+    function isOkFrame() {
+        let isOk = confirm("按下按钮");
+        let returninfo = "";
+        if (isOk == true) {
+            returninfo = "你按下了确认按钮";
+        } else {
+            returninfo = "你按下了取消按钮"
+        }
+        document.getElementById("isOkid").textContent = returninfo;
+    }
+
+    function tipFrame() {
+        let tipinfo = prompt("这是一个提示框，请输入一段话吧", "哈，你真帅");
+        if (tipinfo != null && tipinfo != "") {
+            document.getElementById('tipid').textContent = tipinfo;
+        } else {
+            document.getElementById('tipid').textContent = "";
+        }
+    }
+    </script>
+</body>
+
+</html>

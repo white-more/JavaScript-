@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>javascript 对象的创建</title>
+</head>
+
+<body>
+    <input type="button" value="点击我找到你" onclick="showperson()">
+    <p id="iyid"></p>
+    <!-- 
+		1、创建对象实例
+	 -->
+    <script type="text/javascript">
+    person = { name: "xiaobaicai", age: 21, figure: "breautiful" }
+
+    function showperson() {
+
+        document.getElementById('iyid').textContent = person.name + " ," + person.age + "," + person.figure + ";";
+        person.name = "hello";
+        document.getElementById('iyid').textContent += person.name + " ," + person.age + "," + person.figure + ";";
+    }
+    </script>
+    <!-- 
+		2、创建用于对象模板
+     -->
+    <input type="button" name="" value="点击我，show对象模板实例" onclick="showTeacher()">
+    <p id="mpid"></p>
+    <script type="text/javascript">
+    	/**
+    	 * 创建模板
+    	 * @param  {String} tname   教师姓名
+    	 * @param  {String} tid     teacher id
+    	 * @param  {number} tage    teacher age
+    	 * @param  {String} tfigure teacher figure
+    	 * @return {[type]}         no return
+    	 */
+    function teacher(tname, tid, tage, tfigure) {
+        this.tname = tname;
+        this.tid = tid;
+        this.tage = tage;
+        this.tfigure = tfigure;
+    }
+
+    function showTeacher() {
+        var t1 = new teacher("xiaoman", "20180001", 22, "hot");
+        document.getElementById('mpid').textContent = t1.tname + "," + t1.tid + "," + t1.tage + "," + t1.tfigure + ";";
+    }
+    </script>
+</body>
+
+</html>
